@@ -10,7 +10,9 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup | undefined;
 
-  constructor(private fb: FormBuilder, private appService: AppService) {}
+  constructor(private fb: FormBuilder, private appService: AppService) {
+    console.log('timezone', this.appService.localTimeZone)
+  }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
