@@ -10,8 +10,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup | undefined;
 
-  constructor(private fb: FormBuilder, private appService: AppService) {
-  }
+  constructor(private fb: FormBuilder, private appService: AppService) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
