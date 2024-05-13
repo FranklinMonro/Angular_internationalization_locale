@@ -5,12 +5,7 @@
   "projects": {
     "Web": {
       "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-          "en-ZA": "src/locale/messages.za.xlf",
-          "en-CA": "src/locale/messages.ca.xlf",
-          "en-BW": "src/locale/messages.bw.xlf"
-        }
+        "sourceLocale": "en-US"
       },
       "projectType": "application",
       "schematics": {
@@ -25,7 +20,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": ["en-ZA"],
             "outputPath": "dist/web",
             "index": "src/index.html",
             "browser": "src/main.ts",
