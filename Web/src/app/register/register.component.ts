@@ -10,7 +10,9 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup | undefined;
 
-  constructor(@Inject(LOCALE_ID) locale: string, private fb: FormBuilder) {}
+  constructor(@Inject(LOCALE_ID) locale: string, private fb: FormBuilder) {
+    console.log('locale', locale);
+  }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
