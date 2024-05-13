@@ -4,13 +4,17 @@
   "newProjectRoot": "projects",
   "projects": {
     "Web": {
-      "i18n": {
-        "sourceLocale": "en-US"
-      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
         }
       },
       "root": "",
@@ -100,8 +104,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "f613fece-d846-451f-bb27-c0d83e248f2c"
   }
 }
