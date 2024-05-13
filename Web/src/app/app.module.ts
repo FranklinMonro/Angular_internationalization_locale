@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,8 @@ import { ChatComponent } from './chat/chat.component';
     AppRoutingModule,
     MatCardModule,
     MatTabsModule,
+    MatInputModule,
+    MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule
   ],
