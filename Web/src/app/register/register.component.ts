@@ -1,6 +1,6 @@
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { AppService } from '../app.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,8 +10,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup | undefined;
 
-  constructor(@Inject(LOCALE_ID) locale: string, private fb: FormBuilder) {
-    console.log('locale', locale);
+  constructor(private fb: FormBuilder, private appService: AppService) {
   }
 
   ngOnInit(): void {

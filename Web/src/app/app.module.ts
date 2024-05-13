@@ -1,4 +1,4 @@
-import { NgModule, LOCALE_ID, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -12,20 +12,6 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RegisterComponent } from './register/register.component';
 import { ChatComponent } from './chat/chat.component';
-import { registerLocaleData } from '@angular/common';
-
-export function initializeApp(locale: string) {
-  return async () => {
-    try {
-      await import(`@angular/common/locales/${locale}.js`)
-      .then(localeModule => {
-        registerLocaleData(localeModule.default);
-      });
-    } catch (error) {
-      console.error(`Error loading locale data for ${locale}`, error);
-    }
-  };
-}
 
 @NgModule({
   declarations: [
@@ -44,14 +30,7 @@ export function initializeApp(locale: string) {
     ReactiveFormsModule
   ],
   providers: [
-    provideAnimationsAsync(),
-    { provide: LOCALE_ID, useValue: 'en-US' }, // Set the default locale to 'en-US'
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeApp,
-      multi: true,
-      deps: [LOCALE_ID]
-    }
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
