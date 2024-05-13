@@ -1,0 +1,2 @@
+# Angular_internationalization_locale
+Angular_-internationalization_locale
