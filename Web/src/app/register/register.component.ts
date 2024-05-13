@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup | undefined;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(@Inject(LOCALE_ID) locale: string, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
