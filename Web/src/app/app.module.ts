@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterLuxonComponent } from './register-luxon/register-luxon.component';
 import { RegisterInterComponent } from './register-inter/register-inter.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { DatetimeComponent } from './datetime/datetime.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
     RegisterComponent,
     RegisterLuxonComponent,
     RegisterInterComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    DatetimeComponent
   ],
   imports: [
     BrowserModule,

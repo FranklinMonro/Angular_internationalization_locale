@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { AppService } from '../app.service';
+import { DateTime } from 'luxon';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +12,10 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup | undefined;
 
   constructor(private fb: FormBuilder, private appService: AppService) {
-    console.log('timezone', this.appService.localTimeZone)
+    console.log('timezone', this.appService.localTimeZone);
+    console.log('DateTime', DateTime.now().toISO());
+    console.log('new Date', new Date().toISOString());
+    console.log('fromISO', DateTime.fromISO(new Date().toISOString()));
   }
 
   ngOnInit(): void {
