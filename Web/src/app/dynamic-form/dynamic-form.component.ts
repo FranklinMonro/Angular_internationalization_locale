@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DynamicForm } from './dynamic-form.class';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './dynamic-form.component.scss'
 })
 export class DynamicFormComponent {
+  @Input() dynamicForm!: DynamicForm<string>;
+  @Input() form!: FormGroup;
 
+  get isValid() {
+    return this.form.controls[this.dynamicForm.key].valid;
+  }
 }
