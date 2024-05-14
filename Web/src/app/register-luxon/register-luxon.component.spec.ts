@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChatComponent } from './chat.component';
+import { RegisterLuxonComponent } from './register-luxon.component';
 
-describe('ChatComponent', () => {
-  let component: ChatComponent;
-  let fixture: ComponentFixture<ChatComponent>;
+describe('RegisterLuxonComponent', () => {
+  let component: RegisterLuxonComponent;
+  let fixture: ComponentFixture<RegisterLuxonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ChatComponent]
+      declarations: [RegisterLuxonComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ChatComponent);
+    fixture = TestBed.createComponent(RegisterLuxonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

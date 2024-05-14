@@ -11,13 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RegisterComponent } from './register/register.component';
-import { ChatComponent } from './chat/chat.component';
+import { RegisterLuxonComponent } from './register-luxon/register-luxon.component';
+import { RegisterInterComponent } from './register-inter/register-inter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    ChatComponent
+    RegisterLuxonComponent,
+    RegisterInterComponent
   ],
   imports: [
     BrowserModule,

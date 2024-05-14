@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   tabNavItems = [
-    { tabName: 'register', link: 'register' },
-    { tabName: 'chat', link: 'chat' },
+    { tabName: 'Register', link: 'register' },
+    { tabName: 'Luxon', link: 'luxon' },
+    { tabName: 'Internalization', link: 'internalization' },
   ];
 
   activeLink = this.tabNavItems[0].tabName;
