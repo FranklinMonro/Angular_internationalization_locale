@@ -13,13 +13,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { RegisterComponent } from './register/register.component';
 import { RegisterLuxonComponent } from './register-luxon/register-luxon.component';
 import { RegisterInterComponent } from './register-inter/register-inter.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     RegisterLuxonComponent,
-    RegisterInterComponent
+    RegisterInterComponent,
+    DynamicFormComponent
   ],
   imports: [
     BrowserModule,
