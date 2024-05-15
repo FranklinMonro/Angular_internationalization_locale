@@ -25,7 +25,8 @@
 		"vscode": {
 			"extensions": [
 				"Angular.ng-template",
-				"johnpapa.Angular2"
+				"johnpapa.Angular2",
+				"oderwat.indent-rainbow"
 			]
 		}
 	}

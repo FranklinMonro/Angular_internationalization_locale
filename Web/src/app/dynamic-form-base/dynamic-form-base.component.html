@@ -1,1 +1,16 @@
-<p>dynamic-form-base works!</p>
+<div class="main-div">
+    <mat-card>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                
+                <div *ngFor="let control of inputForm">
+                    <app-dynamic-form [inputControl]="control" [form]="form"></app-dynamic-form>
+                </div>
+        
+                <div>
+                    <button type="submit" mat-raised-button color="accent">Accent</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,1 +1,19 @@
-<p>dynamic-form works!</p>
+<div [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>{{ inputControl.label }}</mat-label>
+        <div [ngSwitch]="inputControl.controlType">
+            <input 
+                *ngSwitchCase="'textbox'"
+                matInput 
+                [formControlName]="inputControl.key"
+                [id]="inputControl.key"
+                [type]="inputControl.type">
+            <mat-select 
+                *ngSwitchCase="'dropdown'"
+                [formControlName]="inputControl.key"
+                [id]="inputControl.key">
+                <mat-option *ngFor="let item of inputControl.options" [value]="item.value">{{ item.key }}</mat-option>
+            </mat-select>
+        </div>
+    </mat-form-field>
+</div>
