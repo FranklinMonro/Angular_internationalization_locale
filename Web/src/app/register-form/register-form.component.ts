@@ -19,6 +19,7 @@ export class RegisterFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.selectRegion(this.selectedValue);
   }
 
   createForm() {
@@ -31,8 +32,17 @@ export class RegisterFormComponent implements OnInit {
     });
   }
 
-  checkLocation(control: FormControl) {
-    console.log(control);
+  selectRegion(timeZone: string) {
+    if (timeZone === 'Africa/Gaborone') {
+      this.registerForm?.get('idNumber')?.enable();
+      this.registerForm?.get('idNumber')?.clearValidators();
+    } else if (timeZone === 'Canada/Central') {
+      this.registerForm?.get('idNumber')?.disable();
+      this.registerForm?.get('idNumber')?.clearValidators();
+    } else {
+      this.registerForm?.get('idNumber')?.enable();
+      this.registerForm?.get('idNumber')?.setValidators([Validators.required]);
+    }
   }
 
   onSubmit() {

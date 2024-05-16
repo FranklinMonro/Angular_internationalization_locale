@@ -2,7 +2,7 @@
 <div style="text-align: center;">
     <mat-form-field appearance="outline">
         <mat-label>Region</mat-label>
-        <mat-select [(ngModel)]="selectedValue">
+        <mat-select [(ngModel)]="selectedValue" (selectionChange)="selectRegion($event.value)">
             <mat-option *ngFor="let item of timezones" [value]="item">{{ item }}</mat-option>
         </mat-select>
     </mat-form-field>
@@ -22,10 +22,13 @@
                     <input matInput formControlName="surname">
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" class="formfield-full-width">
-                    <mat-label>ID Number</mat-label>
-                    <input matInput formControlName="idNumber">
-                </mat-form-field>
+                <div *ngIf="!registerForm.get('idNumber')?.disabled">
+                    <mat-form-field appearance="outline" class="formfield-full-width">
+                        <mat-label>ID Number</mat-label>
+                        <input matInput formControlName="idNumber">
+                    </mat-form-field>
+                </div>
+                
 
                 <mat-form-field appearance="outline" class="formfield-full-width">
                     <mat-label>Luxon Date</mat-label>
