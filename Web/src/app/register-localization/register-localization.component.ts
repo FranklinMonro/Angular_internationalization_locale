@@ -10,12 +10,11 @@ import { DateTime } from 'luxon';
 export class RegisterLocalizationComponent {
   registerForm: FormGroup | undefined;
   
-  selectedValue: string = DateTime.now().zoneName;
   constructor(private formBuilder: FormBuilder, @Inject(LOCALE_ID) public locale: string) {}
 
   ngOnInit(): void {
     this.createForm();
-    console.log('locale', this.locale)
+    this.selectRegion(this.locale);
   }
 
   createForm() {
@@ -26,6 +25,20 @@ export class RegisterLocalizationComponent {
       luxon_date: [DateTime.now().toISO()!],
       javascript_date: [new Date().toISOString()]
     });
+  }
+
+  selectRegion(timeZone: string) {
+    if (timeZone === 'en-BW') {
+      this.registerForm?.get('idNumber')?.enable();
+      this.registerForm?.get('idNumber')?.clearValidators();
+    } else if (timeZone === 'fr-CA') {
+      this.registerForm?.get('idNumber')?.disable();
+      this.registerForm?.get('idNumber')?.clearValidators();
+    } else {
+      this.registerForm?.get('idNumber')?.enable();
+      this.registerForm?.get('idNumber')?.setValidators([Validators.required]);
+    }
+    this.registerForm?.get('luxon_date')?.patchValue(DateTime.now().setZone(timeZone).toISO()!)
   }
 
   onSubmit() {
