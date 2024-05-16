@@ -12,7 +12,8 @@ interface TabListItems {
 })
 export class AppComponent {
   tabNavItems: TabListItems[] = [
-    { tabName: 'Register Dynamics', link: 'dynamics' },
+    { tabName: 'Register Dynamics', link: 'register' },
+    { tabName: 'Dynamics Register', link: 'dynamics' },
   ];
   activeLink = this.tabNavItems[0].tabName;
 }
