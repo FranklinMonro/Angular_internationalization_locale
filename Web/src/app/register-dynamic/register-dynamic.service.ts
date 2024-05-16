@@ -52,6 +52,20 @@ export class RegisterDynamicService {
         ],
         order: 4,
       }),
+
+      new DynamicFormBaseTextbox({
+        key: 'luxon_date',
+        label: 'Luxon Date',
+        required: true,
+        order: 5,
+      }),
+
+      new DynamicFormBaseTextbox({
+        key: 'javascript_date',
+        label: 'Javascript Date',
+        required: true,
+        order: 6,
+      }),
     ];
     return of(registerForm.sort((a, b) => a.order - b.order));
   };
