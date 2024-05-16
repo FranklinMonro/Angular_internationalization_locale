@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev": "npm update --save --save-dev && ng serve --host 0.0.0.0 --poll 500",
-    "dev1": "ng serve --host 0.0.0.0 --poll 500"
+    "dev1": "ng serve --host 0.0.0.0 --poll 500",
+    "loc": "ng build --server 0.0.0.0 --poll 500 --localize --watch"
   },
   "private": true,
   "dependencies": {
