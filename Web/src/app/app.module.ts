@@ -14,7 +14,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { RegisterDynamicComponent } from './register-dynamic/register-dynamic.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 import { DynamicFormBaseComponent } from './dynamic-form-base/dynamic-form-base.component';
 import { DynamicFormComponent } from './dynamic-form-base/dynamic-form/dynamic-form.component';
 import { DynamicRegisterComponent } from './dynamic-register/dynamic-register.component';
@@ -23,7 +23,7 @@ import { RegisterLocalizationComponent } from './register-localization/register-
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterDynamicComponent,
+    RegisterFormComponent,
     DynamicFormBaseComponent,
     DynamicFormComponent,
     DynamicRegisterComponent,
