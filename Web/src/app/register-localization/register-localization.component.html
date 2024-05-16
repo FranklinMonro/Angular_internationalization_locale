@@ -1,7 +1,45 @@
-<div class="main-div">
+<br>
+<div style="text-align: center;">
+    <mat-form-field appearance="outline">
+        <mat-label i18n>Time Zone</mat-label>
+        <input matInput [(ngModel)]="selectedValue" readonly>
+    </mat-form-field>
+</div>
+
+
+<div class="main-div" >
     <mat-card style="width: 25%;">
         <mat-card-content>
-            <p>Local</p>
+            <form *ngIf="registerForm" (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="card-form">
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label i18n>Firstname</mat-label>
+                    <input matInput formControlName="firstname" >
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label i18n>Surname</mat-label>
+                    <input matInput formControlName="surname">
+                </mat-form-field>
+
+                <div>
+                    <mat-form-field appearance="outline" class="formfield-full-width">
+                        <mat-label i18n>ID Number</mat-label>
+                        <input matInput formControlName="idNumber">
+                    </mat-form-field>
+                </div>
+                
+
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label i18n>Luxon Date</mat-label>
+                    <input matInput formControlName="luxon_date">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label i18n>Javascript Date</mat-label>
+                    <input matInput formControlName="javascript_date">
+                </mat-form-field>
+
+            </form>
         </mat-card-content>
     </mat-card>
 </div>
