@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { DynamicFormBaseDropdown } from '../dynamic-form-base/dynamic-form-base.dropdown';
 import { DynamicFormBaseTextbox } from '../dynamic-form-base/dynamic-form-base.textbox';
 import { DynamicFormBaseDatebox } from '../dynamic-form-base/dynamic-form-base.datebox';
+import { DateTime } from 'luxon';
 
 interface IdentificationRegister {
   key: string;
@@ -57,6 +58,7 @@ export class RegisterDynamicService {
       new DynamicFormBaseDatebox({
         key: 'luxon_date',
         label: 'Luxon Date',
+        value: DateTime.now().setZone(localeID).toISO()!,
         required: true,
         order: 5,
       }),
@@ -64,6 +66,7 @@ export class RegisterDynamicService {
       new DynamicFormBaseDatebox({
         key: 'javascript_date',
         label: 'Javascript Date',
+        value: new Date().toISOString(),
         required: true,
         order: 6,
       }),
@@ -76,17 +79,17 @@ export class RegisterDynamicService {
     let label: string = '';
     let required: boolean = false;
     switch (localeID) {
-      case 'en-ZA':
+      case 'Africa/Johannesburg':
         key = 'idNumber';
         label = 'ID Number';
         required = true;
         break;
-      case 'en-BW':
+      case 'Africa/Gaborone':
         key = 'idNumber';
         label = 'ID Number';
         required = false;
         break;
-      case 'en-CA' || 'fr-CA':
+      case 'Canada/Central':
         key = 'socialSecurityNumber';
         label = 'Social Security Number';
         required = true;

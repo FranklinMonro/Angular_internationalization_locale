@@ -1,7 +1,7 @@
 <div class="main-div">
-    <mat-card>
+    <mat-card style="width: 25%;">
         <mat-card-content>
-            <form (ngSubmit)="onSubmit()" [formGroup]="form">
+            <form (ngSubmit)="onSubmit()" [formGroup]="form" class="card-form">
                 
                 <div *ngFor="let control of inputForm">
                     <app-dynamic-form [inputControl]="control" [form]="form"></app-dynamic-form>

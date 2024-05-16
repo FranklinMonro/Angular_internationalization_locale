@@ -17,13 +17,17 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { RegisterDynamicComponent } from './register-dynamic/register-dynamic.component';
 import { DynamicFormBaseComponent } from './dynamic-form-base/dynamic-form-base.component';
 import { DynamicFormComponent } from './dynamic-form-base/dynamic-form/dynamic-form.component';
+import { DynamicRegisterComponent } from './dynamic-register/dynamic-register.component';
+import { RegisterLocalizationComponent } from './register-localization/register-localization.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterDynamicComponent,
     DynamicFormBaseComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    DynamicRegisterComponent,
+    RegisterLocalizationComponent
   ],
   imports: [
     BrowserModule,

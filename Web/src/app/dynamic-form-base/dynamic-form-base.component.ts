@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DynamicFormBase } from './dynamic-form-base.base';
 import { FormGroup } from '@angular/forms';
 import { DynamicFormControlService } from './dynamic-form-control.service';
@@ -8,14 +8,15 @@ import { DynamicFormControlService } from './dynamic-form-control.service';
   templateUrl: './dynamic-form-base.component.html',
   styleUrl: './dynamic-form-base.component.scss'
 })
-export class DynamicFormBaseComponent implements OnInit {
+export class DynamicFormBaseComponent implements OnChanges {
   @Input() inputForm: DynamicFormBase<string>[] | null = [];
   form!: FormGroup;
   payLoad = '';
 
   constructor(private dynamicFormControlService: DynamicFormControlService) {}
+  
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.form = this.dynamicFormControlService.toFormGroup(this.inputForm as DynamicFormBase<string>[]);
   }
 

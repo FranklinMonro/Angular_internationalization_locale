@@ -12,9 +12,9 @@ import { DateTime } from 'luxon';
 export class RegisterDynamicComponent {
   registerForm$!: Observable<DynamicFormBase<string>[]>;
 
-  timezones: string[] = ['en-ZA', 'en-BW', 'en-CA', 'fr-CA'];
+  timezones: string[] = ['Africa/Johannesburg', 'Africa/Gaborone', 'Canada/Central'];
 
-  selectedValue: string = DateTime.now().locale;
+  selectedValue: string = DateTime.now().zoneName;
   constructor(private registerDynamicService: RegisterDynamicService) {
     this.selectRegion(this.selectedValue);
   }
