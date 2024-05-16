@@ -3,6 +3,7 @@ import { DynamicFormBase } from '../dynamic-form-base/dynamic-form-base.base';
 import { of } from 'rxjs';
 import { DynamicFormBaseDropdown } from '../dynamic-form-base/dynamic-form-base.dropdown';
 import { DynamicFormBaseTextbox } from '../dynamic-form-base/dynamic-form-base.textbox';
+import { DynamicFormBaseDatebox } from '../dynamic-form-base/dynamic-form-base.datebox';
 
 interface IdentificationRegister {
   key: string;
@@ -53,14 +54,14 @@ export class RegisterDynamicService {
         order: 4,
       }),
 
-      new DynamicFormBaseTextbox({
+      new DynamicFormBaseDatebox({
         key: 'luxon_date',
         label: 'Luxon Date',
         required: true,
         order: 5,
       }),
 
-      new DynamicFormBaseTextbox({
+      new DynamicFormBaseDatebox({
         key: 'javascript_date',
         label: 'Javascript Date',
         required: true,
