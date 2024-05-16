@@ -43,6 +43,7 @@ export class RegisterFormComponent implements OnInit {
       this.registerForm?.get('idNumber')?.enable();
       this.registerForm?.get('idNumber')?.setValidators([Validators.required]);
     }
+    this.registerForm?.get('luxon_date')?.patchValue(DateTime.now().setZone(timeZone).toISO()!)
   }
 
   onSubmit() {
