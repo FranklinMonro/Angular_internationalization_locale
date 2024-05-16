@@ -5,10 +5,10 @@ import { DynamicRegisterComponent } from './dynamic-register/dynamic-register.co
 import { RegisterLocalizationComponent } from './register-localization/register-localization.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'dynamics'},
+  { path: '', pathMatch: 'full', redirectTo: 'localization'},
+  { path: 'localization', component: RegisterLocalizationComponent },
   { path: 'register', component: RegisterFormComponent },
   { path: 'dynamics', component: DynamicRegisterComponent },
-  { path: 'localization', component: RegisterLocalizationComponent },
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DateTime } from 'luxon';
 
@@ -11,10 +11,11 @@ export class RegisterLocalizationComponent {
   registerForm: FormGroup | undefined;
   
   selectedValue: string = DateTime.now().zoneName;
-  constructor(private formBuilder: FormBuilder,) {}
+  constructor(private formBuilder: FormBuilder, @Inject(LOCALE_ID) public locale: string) {}
 
   ngOnInit(): void {
     this.createForm();
+    console.log('locale', this.locale)
   }
 
   createForm() {
