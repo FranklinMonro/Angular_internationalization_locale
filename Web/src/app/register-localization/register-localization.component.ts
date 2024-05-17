@@ -22,7 +22,7 @@ export class RegisterLocalizationComponent {
       firstname: [null, [Validators.required]],
       surname: [null, [Validators.required]],
       idNumber: [null, [Validators.required]],
-      luxon_date: [DateTime.now().toISO()!],
+      luxon_date: [DateTime.now().toISO()],
       javascript_date: [new Date().toISOString()]
     });
   }
@@ -38,7 +38,7 @@ export class RegisterLocalizationComponent {
       this.registerForm?.get('idNumber')?.enable();
       this.registerForm?.get('idNumber')?.setValidators([Validators.required]);
     }
-    this.registerForm?.get('luxon_date')?.patchValue(DateTime.now().setZone(timeZone).toISO()!)
+    // this.registerForm?.get('luxon_date')?.patchValue(DateTime.now().setZone(timeZone).toISO()!)
   }
 
   onSubmit() {

@@ -31,14 +31,27 @@
 
                 <mat-form-field appearance="outline" class="formfield-full-width">
                     <mat-label i18n>Luxon Date</mat-label>
-                    <input matInput formControlName="luxon_date">
+                    <input matInput formControlName="luxon_date" readonly>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="formfield-full-width">
                     <mat-label i18n>Javascript Date</mat-label>
-                    <input matInput formControlName="javascript_date">
+                    <input matInput formControlName="javascript_date" readonly>
                 </mat-form-field>
 
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label i18n>Luxon Date Pipe</mat-label>
+                    <input 
+                        matInput
+                        [value]="registerForm.get('luxon_date')?.value | date:'medium'">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label i18n>Javascript Date Pipe</mat-label>
+                    <input 
+                        matInput
+                        [value]="registerForm.get('javascript_date')?.value | date:'medium'">
+                </mat-form-field>
                 <div>
                     <button type="submit" mat-raised-button color="accent" i18n>Submit</button>
                 </div>
