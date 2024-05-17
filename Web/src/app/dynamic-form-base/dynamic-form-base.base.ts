@@ -6,6 +6,7 @@ export class DynamicFormBase<T> {
     order: number;
     controlType: string;
     type: string;
+    disabled: boolean;
     options: {key: string, value: string}[];
   
     constructor(options: {
@@ -16,6 +17,7 @@ export class DynamicFormBase<T> {
         order?: number;
         controlType?: string;
         type?: string;
+        disabled?: boolean;
         options?: {key: string, value: string}[];
       } = {}) {
       this.value = options.value;
@@ -25,6 +27,7 @@ export class DynamicFormBase<T> {
       this.order = options.order === undefined ? 1 : options.order;
       this.controlType = options.controlType || '';
       this.type = options.type || '';
+      this.disabled = options.disabled || false;
       this.options = options.options || [];
     }
 }

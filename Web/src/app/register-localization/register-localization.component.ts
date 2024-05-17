@@ -23,7 +23,9 @@ export class RegisterLocalizationComponent {
       surname: [null, [Validators.required]],
       idNumber: [null, [Validators.required]],
       luxon_date: [DateTime.now().toISO()],
-      javascript_date: [new Date().toISOString()]
+      javascript_date: [new Date().toISOString()],
+      component: ['register-localization'],
+      timezone: [this.locale],
     });
   }
 

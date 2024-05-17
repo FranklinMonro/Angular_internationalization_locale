@@ -28,7 +28,9 @@ export class RegisterFormComponent implements OnInit {
       surname: [null, [Validators.required]],
       idNumber: [null, [Validators.required]],
       luxon_date: [DateTime.now().setZone(this.selectedValue).toISO()!],
-      javascript_date: [new Date().toISOString()]
+      javascript_date: [new Date().toISOString()],
+      component: ['register-form'],
+      timezone: [this.selectedValue],
     });
   }
 

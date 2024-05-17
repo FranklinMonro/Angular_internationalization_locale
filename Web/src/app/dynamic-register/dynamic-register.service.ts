@@ -70,6 +70,24 @@ export class RegisterDynamicService {
                 required: true,
                 order: 6,
             }),
+
+            new DynamicFormBaseTextbox({
+                key: 'component',
+                label: 'Component',
+                value: 'dynamic-register',
+                disabled: true,
+                required: true,
+                order: 7,
+            }),
+
+            new DynamicFormBaseTextbox({
+                key: 'timezone',
+                label: 'Timezone',
+                value: localeID,
+                disabled: true,
+                required: true,
+                order: 8,
+            }),
         ];
         return of(registerForm.sort((a, b) => a.order - b.order));
     };
