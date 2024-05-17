@@ -2,6 +2,8 @@ import { json, urlencoded } from 'body-parser';
 import express, { NextFunction, Request, Response } from 'express';
 // import swaggerUi from 'swagger-ui-express';
 
+import RegisterRouter from '../routes/register/register.routes';
+
 class App {
     public httpServer = express();
 
@@ -29,7 +31,7 @@ class App {
 
 
 
-        // this.httpServer.use('/api/authenticate', AuthenticateRouter);
+        this.httpServer.use('/api/register', RegisterRouter);
 
 
         this.httpServer.use((err: Error, req: Request, res: Response, next: NextFunction) => {
