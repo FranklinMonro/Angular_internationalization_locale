@@ -50,3 +50,6 @@ sequelize-auto -h db -d postgres -u postgres -x postgres --dialect postgres -o "
 # Create i18n xlf files
 cd Web/
 ng extract-i18n --output-path src/locale
+
+# Build localize file
+ng build --localize
