@@ -55,4 +55,5 @@ ng extract-i18n --output-path src/locale
 ng build --localize
 
 # Run HTTP-Server
+cd Web/dist/web/browser/
 http-server --port 4200
