@@ -1,6 +1,7 @@
 import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DateTime } from 'luxon';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-register-localization',
@@ -10,7 +11,11 @@ import { DateTime } from 'luxon';
 export class RegisterLocalizationComponent {
   registerForm: FormGroup | undefined;
   
-  constructor(private formBuilder: FormBuilder, @Inject(LOCALE_ID) public locale: string) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    @Inject(LOCALE_ID) public locale: string,
+    private appService: AppService,
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -44,7 +49,17 @@ export class RegisterLocalizationComponent {
   }
 
   onSubmit() {
-    console.log('onSubmit');
+    this.appService.postRegisters(this.registerForm?.value).subscribe({
+      next: () => {
+        console.log('Posted')
+      },
+      error: (err: ErrorEvent) => {
+        console.error(err.message);
+      },
+      complete: () => {
+        console.log('complete');
+      },
+    })
   }
 
 }

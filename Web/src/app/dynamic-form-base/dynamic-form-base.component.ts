@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DynamicFormBase } from './dynamic-form-base.base';
 import { FormGroup } from '@angular/forms';
 import { DynamicFormControlService } from './dynamic-form-control.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-dynamic-form-base',
@@ -13,7 +14,10 @@ export class DynamicFormBaseComponent implements OnChanges {
   form!: FormGroup;
   payLoad = '';
 
-  constructor(private dynamicFormControlService: DynamicFormControlService) {}
+  constructor(
+    private dynamicFormControlService: DynamicFormControlService,
+    private appService: AppService,
+  ) {}
   
 
   ngOnChanges(): void {
@@ -22,5 +26,16 @@ export class DynamicFormBaseComponent implements OnChanges {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
+    this.appService.postRegisters(this.form.getRawValue()).subscribe({
+      next: () => {
+        console.log('Posted')
+      },
+      error: (err: ErrorEvent) => {
+        console.error(err.message);
+      },
+      complete: () => {
+        console.log('complete');
+      },
+    })
   }
 }

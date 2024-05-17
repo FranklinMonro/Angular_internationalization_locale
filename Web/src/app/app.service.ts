@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { map, catchError } from 'rxjs';
+import { map, catchError, Observable } from 'rxjs';
 
 interface Register {
   id?: string;
@@ -30,16 +30,16 @@ export class AppService {
         return response.body;
       }),
       catchError((error: HttpErrorResponse) =>  { throw new Error(error.message); }),
-    ).subscribe();
+    );
   };
 
-  postRegisters = (register: Register): any => {
-    return this.httpClient.post<any>(`http://localhost:3000/api/register`, register,
+  postRegisters = (register: Register): Observable<any> => {
+    return this.httpClient.post<Register>(`http://localhost:3000/api/register`, register,
     { observe: 'response' }).pipe(
-      map((response: HttpResponse<any>) => {
+      map((response: HttpResponse<Register>) => {
         return response.body;
       }),
       catchError((error: HttpErrorResponse) =>  { throw new Error(error.message); }),
-    ).subscribe();
+    );
   };
 }

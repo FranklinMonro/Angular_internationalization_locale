@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DateTime } from 'luxon';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-register-dynamic',
@@ -15,6 +16,7 @@ export class RegisterFormComponent implements OnInit {
   selectedValue: string = DateTime.now().zoneName;
   constructor(
     private formBuilder: FormBuilder,
+    private appService: AppService,
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +51,16 @@ export class RegisterFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onSubmit');
+    this.appService.postRegisters(this.registerForm?.value).subscribe({
+      next: () => {
+        console.log('Posted')
+      },
+      error: (err: ErrorEvent) => {
+        console.error(err.message);
+      },
+      complete: () => {
+        console.log('complete');
+      },
+    })
   }
 }
