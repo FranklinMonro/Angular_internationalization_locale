@@ -2,6 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs';
 
+interface Register {
+  id?: string;
+  firstname?: string;
+  surname?: string;
+  created_date_tz?: Date;
+  created_date?: Date;
+  luxon_date_tz?: Date;
+  luxon_date?: Date;
+  javascript_date_tz?: Date;
+  javascript_date?: Date;
+  component?: string;
+  timezone?: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,8 +33,8 @@ export class AppService {
     ).subscribe();
   };
 
-  postRegisters = (): any => {
-    return this.httpClient.post<any>(`http://localhost:3000/api/register`, 
+  postRegisters = (register: Register): any => {
+    return this.httpClient.post<any>(`http://localhost:3000/api/register`, register,
     { observe: 'response' }).pipe(
       map((response: HttpResponse<any>) => {
         return response.body;
