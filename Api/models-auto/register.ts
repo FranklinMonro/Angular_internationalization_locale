@@ -11,11 +11,13 @@ export interface registerAttributes {
   luxon_date?: Date;
   javascript_date_tz?: Date;
   javascript_date?: Date;
+  component?: string;
+  timezone?: string;
 }
 
 export type registerPk = "id";
 export type registerId = register[registerPk];
-export type registerOptionalAttributes = "firstname" | "surname" | "created_date_tz" | "created_date" | "luxon_date_tz" | "luxon_date" | "javascript_date_tz" | "javascript_date";
+export type registerOptionalAttributes = "firstname" | "surname" | "created_date_tz" | "created_date" | "luxon_date_tz" | "luxon_date" | "javascript_date_tz" | "javascript_date" | "component" | "timezone";
 export type registerCreationAttributes = Optional<registerAttributes, registerOptionalAttributes>;
 
 export class register extends Model<registerAttributes, registerCreationAttributes> implements registerAttributes {
@@ -28,6 +30,8 @@ export class register extends Model<registerAttributes, registerCreationAttribut
   luxon_date?: Date;
   javascript_date_tz?: Date;
   javascript_date?: Date;
+  component?: string;
+  timezone?: string;
 
 
   static initModel(sequelize: Sequelize.Sequelize): typeof register {
@@ -67,6 +71,14 @@ export class register extends Model<registerAttributes, registerCreationAttribut
     },
     javascript_date: {
       type: DataTypes.DATE,
+      allowNull: true
+    },
+    component: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    timezone: {
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {
