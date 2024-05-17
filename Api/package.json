@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "update dev": "npm update --save --save-dev && nodemon -L --exec ts-node server/server.ts",
     "dev": "npm update --save --save-dev && nodemon -L --exec ts-node server/server.ts"
   },
   "keywords": [],
