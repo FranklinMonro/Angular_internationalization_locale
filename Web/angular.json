@@ -10,6 +10,10 @@
           "fr-CA": {
             "translation": "src/locale/messages.fr.xlf",
             "baseHref": "fr-CA/"
+          },
+          "en-BW": {
+            "translation": "src/locale/messages.bw.xlf",
+            "baseHref": "en-BW/"
           }
         }
       },
@@ -33,7 +37,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": ["fr-CA"],
+            "localize": ["fr-CA", "en-BW"],
             "outputPath": "dist/web",
             "index": "src/index.html",
             "browser": "src/main.ts",
