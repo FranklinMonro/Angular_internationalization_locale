@@ -52,8 +52,8 @@ export class RegisterFormComponent implements OnInit {
 
   onSubmit() {
     this.appService.postRegisters(this.registerForm?.value).subscribe({
-      next: () => {
-        console.log('Posted')
+      next: (status: number) => {
+        status === 201 ? console.log('Posted') : console.log('Not Posted');
       },
       error: (err: ErrorEvent) => {
         console.error(err.message);
@@ -61,6 +61,6 @@ export class RegisterFormComponent implements OnInit {
       complete: () => {
         console.log('complete');
       },
-    })
+    });
   }
 }
