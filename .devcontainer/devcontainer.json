@@ -27,7 +27,8 @@
 			"extensions": [
 				"Angular.ng-template",
 				"johnpapa.Angular2",
-				"oderwat.indent-rainbow"
+				"oderwat.indent-rainbow",
+				"rangav.vscode-thunder-client"
 			]
 		}
 	}

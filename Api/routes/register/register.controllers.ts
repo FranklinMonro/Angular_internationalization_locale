@@ -51,6 +51,7 @@ const postRegister = async (req: Request, res: Response, next: NextFunction): Pr
         }).catch((err: ErrorEvent) => {
             throw new Error(`Error message: ${err.message}`);
         });
+        res.sendStatus(201);
     } catch (error) {
         next(error);
     }
