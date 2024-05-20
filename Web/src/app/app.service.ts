@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { map, catchError, Observable } from 'rxjs';
+import { map, catchError, Observable, Subject } from 'rxjs';
 
-interface Register {
+export interface Register {
   id?: string;
   firstname?: string;
   surname?: string;
@@ -20,16 +20,25 @@ interface Register {
   providedIn: 'root'
 })
 export class AppService {
+  private _registerAll = new Subject<Register[]>;
 
+  get getRegisterAll$() {
+    if (!this._registerAll.observed) {
+      this.getRegisters();
+    };
+    return this._registerAll.asObservable();
+  }
   constructor(private httpClient: HttpClient) { }
 
-  getRegisters = (): any => {
-    return this.httpClient.get<any>(`http://localhost:3000/api/register`).pipe(
-      map((response: HttpResponse<any>) => {
-        return response.body;
+  private getRegisters = (): void => {
+    this.httpClient.get<Register[]>(`http://localhost:3000/api/register`,
+      { observe: 'response'},
+    ).pipe(
+      map((response: HttpResponse<Register[]>) => {
+        this._registerAll.next(response.body!);
       }),
       catchError((error: HttpErrorResponse) =>  { throw new Error(error.message); }),
-    );
+    ).subscribe();
   };
 
   postRegisters = (register: Register): Observable<number> => {
