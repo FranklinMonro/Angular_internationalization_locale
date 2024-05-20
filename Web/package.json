@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "update dev": "npm update --save --save-dev && ng serve --host 0.0.0.0 --poll 500",
+    "update": "npm update --save --save-dev && ng serve --host 0.0.0.0 --poll 500",
     "dev": "ng serve --host 0.0.0.0 --poll 500",
     "loc": "ng build --server 0.0.0.0 --poll 500 --localize --watch"
   },
