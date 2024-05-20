@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -44,7 +46,9 @@ import { RegisterTableComponent } from './register-table/register-table.componen
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     provideAnimationsAsync(),

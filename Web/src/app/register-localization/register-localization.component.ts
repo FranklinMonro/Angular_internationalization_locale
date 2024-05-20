@@ -45,7 +45,8 @@ export class RegisterLocalizationComponent {
       this.registerForm?.get('idNumber')?.enable();
       this.registerForm?.get('idNumber')?.setValidators([Validators.required]);
     }
-    // this.registerForm?.get('luxon_date')?.patchValue(DateTime.now().setZone(timeZone).toISO()!)
+    console.log('DateTime',DateTime.now().zoneName,  DateTime.now().toISO(), DateTime.now().setZone(timeZone).toISO()!)
+    this.registerForm?.get('luxon_date')?.patchValue(DateTime.now().setZone(timeZone).toISO()!)
   }
 
   onSubmit() {

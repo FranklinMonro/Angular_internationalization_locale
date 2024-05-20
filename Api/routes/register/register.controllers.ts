@@ -9,7 +9,7 @@ const { register } = initModels(SEQUILIZE_NEW);
 
 const getRegister = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-        const findAll = register.findAll({
+        const findAll = await register.findAll({
             raw: true,
         }).catch((err: ErrorEvent) => {
             throw new Error(`Error message: ${err.message}`);
@@ -25,9 +25,7 @@ const postRegister = async (req: Request, res: Response, next: NextFunction): Pr
         const { 
             firstname,
             surname,
-            luxon_date_tz,
             luxon_date,
-            javascript_date_tz,
             javascript_date,
             component,
             timezone,
@@ -38,9 +36,9 @@ const postRegister = async (req: Request, res: Response, next: NextFunction): Pr
             surname,
             created_date_tz: DateTime.now().toBSON(),
             created_date: DateTime.now().toBSON(),
-            luxon_date_tz,
+            luxon_date_tz: luxon_date,
             luxon_date,
-            javascript_date_tz,
+            javascript_date_tz: javascript_date,
             javascript_date,
             component,
             timezone,
