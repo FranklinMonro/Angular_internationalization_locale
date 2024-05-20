@@ -24,8 +24,7 @@ export class AppService {
   constructor(private httpClient: HttpClient) { }
 
   getRegisters = (): any => {
-    return this.httpClient.get<any>(`http://localhost:3000/api/register`, 
-    { observe: 'response' }).pipe(
+    return this.httpClient.get<any>(`http://localhost:3000/api/register`).pipe(
       map((response: HttpResponse<any>) => {
         return response.body;
       }),
@@ -33,11 +32,12 @@ export class AppService {
     );
   };
 
-  postRegisters = (register: Register): Observable<any> => {
+  postRegisters = (register: Register): Observable<number> => {
+    console.log('postRegister', register);
     return this.httpClient.post<Register>(`http://localhost:3000/api/register`, register,
-    { observe: 'response' }).pipe(
+    { observe: 'response', responseType: 'json' }).pipe(
       map((response: HttpResponse<Register>) => {
-        return response.body;
+        return response.status;
       }),
       catchError((error: HttpErrorResponse) =>  { throw new Error(error.message); }),
     );

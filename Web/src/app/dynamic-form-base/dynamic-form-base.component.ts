@@ -27,8 +27,8 @@ export class DynamicFormBaseComponent implements OnChanges {
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
     this.appService.postRegisters(this.form.getRawValue()).subscribe({
-      next: () => {
-        console.log('Posted')
+      next: (status: number) => {
+        status === 201 ? console.log('Posted') : console.log('Not Posted');
       },
       error: (err: ErrorEvent) => {
         console.error(err.message);

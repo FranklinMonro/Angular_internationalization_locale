@@ -20,6 +20,7 @@ import { DynamicFormBaseComponent } from './dynamic-form-base/dynamic-form-base.
 import { DynamicFormComponent } from './dynamic-form-base/dynamic-form/dynamic-form.component';
 import { DynamicRegisterComponent } from './dynamic-register/dynamic-register.component';
 import { RegisterLocalizationComponent } from './register-localization/register-localization.component';
+import { RegisterTableComponent } from './register-table/register-table.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegisterLocalizationComponent } from './register-localization/register-
     DynamicFormBaseComponent,
     DynamicFormComponent,
     DynamicRegisterComponent,
-    RegisterLocalizationComponent
+    RegisterLocalizationComponent,
+    RegisterTableComponent
   ],
   imports: [
     BrowserModule,
