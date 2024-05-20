@@ -12,7 +12,7 @@ class App {
 
         this.httpServer.use(urlencoded({ extended: true, limit: '500mb' }));
         this.httpServer.use((req: Request, res: Response, next: NextFunction) => {
-            res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+            res.header('Access-Control-Allow-Origin', '*');
             res.header(
                 'Access-Control-Allow-Headers',
                 'Origin, X-Requested-With, Content-Type, Accept, Cache-Control, Authorization, X-CSRFToken, X-Authorization',
@@ -25,8 +25,8 @@ class App {
         this.httpServer.set('trust proxy', true);
 
         this.httpServer.get('/', (req: Request, res: Response) => {
-            console.log('Welcome to Training Dashboard API');
-            res.send('Welcome to Training Dashboard API');
+            console.log('Welcome to API');
+            res.send('Welcome to API');
         });
 
 

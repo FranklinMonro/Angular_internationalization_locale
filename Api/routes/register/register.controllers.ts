@@ -32,8 +32,7 @@ const postRegister = async (req: Request, res: Response, next: NextFunction): Pr
             component,
             timezone,
         } = req.body
-
-        const create = register.create({
+        const create = await register.create({
             id: randomUUID(),
             firstname,
             surname,
@@ -51,7 +50,7 @@ const postRegister = async (req: Request, res: Response, next: NextFunction): Pr
         }).catch((err: ErrorEvent) => {
             throw new Error(`Error message: ${err.message}`);
         });
-        res.sendStatus(201);
+        res.status(201).send(create.isNewRecord);
     } catch (error) {
         next(error);
     }
