@@ -14,7 +14,7 @@ interface TabListItems {
 export class AppComponent {
   tabNavItems: TabListItems[] = [
     { tabName: 'Register Localization', link: 'localization' },
-    { tabName: 'Register Dynamics', link: 'register' },
+    { tabName: 'Register Regions', link: 'register' },
     { tabName: 'Dynamics Register', link: 'dynamics' },
     { tabName: 'Register Table', link: 'table' },
   ];
