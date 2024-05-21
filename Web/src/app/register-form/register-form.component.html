@@ -1,0 +1,48 @@
+<br>
+<div style="text-align: center;">
+    <mat-form-field appearance="outline">
+        <mat-label>Time Zone</mat-label>
+        <mat-select [(ngModel)]="selectedValue" (selectionChange)="selectRegion($event.value)">
+            <mat-option *ngFor="let item of timezones" [value]="item">{{ item }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="main-div" >
+    <mat-card style="width: 25%;">
+        <mat-card-content>
+            <form *ngIf="registerForm" (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="card-form">
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label>Firstname</mat-label>
+                    <input matInput formControlName="firstname">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label>surname</mat-label>
+                    <input matInput formControlName="surname">
+                </mat-form-field>
+
+                <div *ngIf="!registerForm.get('idNumber')?.disabled">
+                    <mat-form-field appearance="outline" class="formfield-full-width">
+                        <mat-label>ID Number</mat-label>
+                        <input matInput formControlName="idNumber">
+                    </mat-form-field>
+                </div>
+                
+
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label>Luxon Date</mat-label>
+                    <input matInput formControlName="luxon_date">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="formfield-full-width">
+                    <mat-label>Javascript Date</mat-label>
+                    <input matInput formControlName="javascript_date">
+                </mat-form-field>
+                <div>
+                    <button type="submit" mat-raised-button color="accent">Submit</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

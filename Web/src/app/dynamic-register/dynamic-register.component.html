@@ -1,0 +1,14 @@
+<br>
+<div style="text-align: center;">
+    <mat-form-field appearance="outline">
+        <mat-label>Time Zone</mat-label>
+        <mat-select [(ngModel)]="selectedValue" (selectionChange)="selectRegion($event.value)">
+            <mat-option *ngFor="let item of timezones" [value]="item">{{ item }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+</div>
+<br>
+<br>
+<br>
+<app-dynamic-form-base [inputForm]="registerForm$ | async"></app-dynamic-form-base>
