@@ -5,7 +5,7 @@
   "projects": {
     "Web": {
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "en-ZA",
         "locales": {
           "fr-CA": {
             "translation": "src/locale/messages.fr.xlf",
